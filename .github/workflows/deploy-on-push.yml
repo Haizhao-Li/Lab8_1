@@ -1,8 +1,5 @@
 name: deploy on push
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
   deploy-app:
@@ -15,8 +12,8 @@ jobs:
         with:
           host: ${{secrets.HOST}}
           username: ${{secrets.SSH_USER_NAME}}
-          port: ${{secrets.SSH_PORT}}
-          key: ${{secrets.SSH_KEY}}
+          port: ${ {secrets.SSH_PORT} }
+          key:  ${ {secrets.SSH_KEY} }
           source: "./html/*"
           target: "/var/www/html"
           strip_components: 1
